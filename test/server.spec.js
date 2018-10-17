@@ -1,3 +1,4 @@
+'use strict';
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../server/server');
@@ -14,7 +15,6 @@ describe('loopback server', function() {
     chai.request(server)
       .get('/')
       .end((err, res) => {
-        expect(err).not.exist;
         expect(res).to.have.status(200);
         done();
       });
@@ -24,7 +24,6 @@ describe('loopback server', function() {
     chai.request(server)
       .get('/api/players')
       .end((err, res) => {
-        expect(err).not.exist;
         expect(res).to.have.status(200);
         done();
       });
@@ -34,10 +33,8 @@ describe('loopback server', function() {
     chai.request(server)
       .get('/api/teams')
       .end((err, res) => {
-        expect(err).not.exist;
         expect(res).to.have.status(200);
         done();
       });
   });
-
-})
+});
